@@ -6,6 +6,9 @@ import { FeatureGrid } from "@/components/feature-grid";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { HeroSection } from "@/components/hero-section";
+import { ImageGallery } from "@/components/image-gallery";
+import { OpeningHours } from "@/components/opening-hours";
+import { ReviewsSection } from "@/components/reviews-section";
 import { createMetadata } from "@/lib/metadata";
 import {
 	createBreadcrumbListSchema,
@@ -68,12 +71,12 @@ export default async function Home({
 						subtitle={t("hero.subtitle")}
 						description={t("hero.description")}
 						primaryAction={{
-							label: t("hero.getStarted"),
+							label: t("hero.visitUs"),
 							href: "/#contact",
 							showArrow: true,
 						}}
 						secondaryAction={{
-							label: t("hero.learnMore"),
+							label: t("hero.viewMenu"),
 							href: "/#features",
 						}}
 					/>
@@ -83,39 +86,40 @@ export default async function Home({
 						features={[
 							{
 								icon: "zap",
-								title: t("features.lightningFast.title"),
-								description: t("features.lightningFast.description"),
+								title: t("features.artisanCoffee.title"),
+								description: t("features.artisanCoffee.description"),
 							},
 							{
 								icon: "shield",
-								title: t("features.typeSafe.title"),
-								description: t("features.typeSafe.description"),
+								title: t("features.freshFood.title"),
+								description: t("features.freshFood.description"),
 							},
 							{
 								icon: "code",
-								title: t("features.developerExperience.title"),
-								description: t("features.developerExperience.description"),
+								title: t("features.cozyAtmosphere.title"),
+								description: t("features.cozyAtmosphere.description"),
 							},
 							{
 								icon: "rocket",
-								title: t("features.productionReady.title"),
-								description: t("features.productionReady.description"),
+								title: t("features.friendlyService.title"),
+								description: t("features.friendlyService.description"),
 							},
 						]}
 					/>
+					<ImageGallery />
+					<OpeningHours />
+					<ReviewsSection />
 					<CTASection
 						title={t("cta.title")}
 						description={t("cta.description")}
 						primaryAction={{
-							label: t("cta.getStarted"),
+							label: t("cta.visitUs"),
 							href: "/#contact",
 							showArrow: true,
 						}}
 						secondaryAction={{
-							label: t("cta.viewOnGitHub"),
-							href:
-								process.env.NEXT_PUBLIC_SOCIAL_GITHUB || "https://github.com",
-							external: true,
+							label: t("cta.contactUs"),
+							href: "/#contact",
 						}}
 					/>
 					<ContactSection />

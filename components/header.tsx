@@ -18,7 +18,8 @@ export function Header() {
 
 	const navItems = [
 		{ href: "/", label: t("home") },
-		{ href: "/#features", label: t("features") },
+		{ href: "/#features", label: t("menu") },
+		{ href: "/#gallery", label: t("about") },
 		{ href: "/#contact", label: t("contact") },
 	];
 
@@ -44,7 +45,7 @@ export function Header() {
 							{item.label}
 						</Link>
 					))}
-					<Button size="sm">{t("getStarted")}</Button>
+					<Button size="sm">{t("visitUs")}</Button>
 				</div>
 
 				{/* Mobile Menu Button */}
@@ -90,7 +91,7 @@ export function Header() {
 								</Link>
 							))}
 							<Button className="w-full mt-4" size="sm">
-								{t("getStarted")}
+								{t("visitUs")}
 							</Button>
 						</div>
 					</motion.div>

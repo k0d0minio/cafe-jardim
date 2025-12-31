@@ -7,6 +7,7 @@ import { Link, usePathname } from "@/i18n/routing";
 
 const localeNames: Record<string, string> = {
 	en: "English",
+	pt: "Português",
 	es: "Español",
 	fr: "Français",
 	de: "Deutsch",

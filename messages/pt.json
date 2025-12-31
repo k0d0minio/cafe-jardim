@@ -1,0 +1,121 @@
+{
+	"header": {
+		"home": "Início",
+		"menu": "Menu",
+		"about": "Sobre",
+		"contact": "Contacto",
+		"visitUs": "Visite-nos",
+		"openMenu": "Abrir menu",
+		"closeMenu": "Fechar menu"
+	},
+	"footer": {
+		"cafe": "Café",
+		"information": "Informação",
+		"legal": "Legal",
+		"menu": "Menu",
+		"about": "Sobre",
+		"location": "Localização",
+		"hours": "Horários",
+		"privacy": "Privacidade",
+		"terms": "Termos",
+		"cookies": "Cookies",
+		"allRightsReserved": "Todos os direitos reservados."
+	},
+	"hero": {
+		"title": "Bem-vindo ao Café Jardim",
+		"subtitle": "São Lourenço, Portugal",
+		"description": "Experimente a combinação perfeita de café artesanal, comida fresca e hospitalidade calorosa no coração de São Lourenço. Um refúgio acolhedor onde cada chávena conta uma história.",
+		"visitUs": "Visite-nos",
+		"viewMenu": "Ver Menu"
+	},
+	"features": {
+		"title": "O Que Oferecemos",
+		"description": "Descubra o que torna o Café Jardim especial.",
+		"artisanCoffee": {
+			"title": "Café Artesanal",
+			"description": "Grãos cuidadosamente selecionados, torrados e preparados com perfeição. Cada chávena é uma celebração de sabor."
+		},
+		"freshFood": {
+			"title": "Comida Fresca",
+			"description": "Refeições e pastelaria preparadas diariamente com os melhores ingredientes locais. Do pequeno-almoço ao almoço, temos tudo para si."
+		},
+		"cozyAtmosphere": {
+			"title": "Ambiente Acolhedor",
+			"description": "Um espaço acolhedor onde pode relaxar, trabalhar ou conversar com amigos. O conforto encontra o estilo em cada canto."
+		},
+		"friendlyService": {
+			"title": "Serviço Amigável",
+			"description": "A nossa equipa está dedicada a tornar a sua visita memorável. Estamos aqui para garantir que tenha a melhor experiência possível."
+		}
+	},
+	"cta": {
+		"title": "Pronto para nos Visitar?",
+		"description": "Venha experimentar o calor e o sabor do Café Jardim. Estamos ansiosos por recebê-lo!",
+		"visitUs": "Visite-nos",
+		"contactUs": "Contacte-nos"
+	},
+	"contact": {
+		"title": "Entre em Contacto",
+		"description": "Tem uma pergunta, quer fazer uma reserva ou apenas dizer olá? Envie-nos uma mensagem e responderemos o mais breve possível.",
+		"form": {
+			"name": "Nome",
+			"namePlaceholder": "O seu nome",
+			"email": "Email",
+			"emailPlaceholder": "seu.email@exemplo.com",
+			"message": "Mensagem",
+			"messagePlaceholder": "A sua mensagem...",
+			"sendMessage": "Enviar Mensagem",
+			"sending": "A enviar...",
+			"sendingAriaLabel": "A enviar mensagem",
+			"sendAriaLabel": "Enviar mensagem",
+			"success": "Obrigado! A sua mensagem foi enviada com sucesso.",
+			"error": "Algo correu mal. Por favor, tente novamente mais tarde."
+		}
+	},
+	"openingHours": {
+		"title": "Horário de Funcionamento",
+		"description": "Estamos aqui para o servir",
+		"closed": "Fechado",
+		"today": "Hoje",
+		"openNow": "Aberto Agora",
+		"days": {
+			"Monday": "Segunda-feira",
+			"Tuesday": "Terça-feira",
+			"Wednesday": "Quarta-feira",
+			"Thursday": "Quinta-feira",
+			"Friday": "Sexta-feira",
+			"Saturday": "Sábado",
+			"Sunday": "Domingo"
+		}
+	},
+	"reviews": {
+		"title": "O Que Dizem os Nossos Clientes",
+		"description": "Não acredite apenas na nossa palavra",
+		"readMore": "Ler mais",
+		"readLess": "Ler menos"
+	},
+	"gallery": {
+		"title": "O Nosso Café",
+		"description": "Dê uma olhadela"
+	},
+	"privacy": {
+		"title": "Política de Privacidade",
+		"lastUpdated": "Última atualização:",
+		"breadcrumb": "Política de Privacidade"
+	},
+	"terms": {
+		"title": "Termos de Serviço",
+		"lastUpdated": "Última atualização:",
+		"breadcrumb": "Termos de Serviço"
+	},
+	"cookies": {
+		"title": "Política de Cookies",
+		"lastUpdated": "Última atualização:",
+		"breadcrumb": "Política de Cookies"
+	},
+	"common": {
+		"home": "Início",
+		"skipToContent": "Saltar para o conteúdo principal"
+	}
+}
+

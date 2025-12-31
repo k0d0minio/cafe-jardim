@@ -51,15 +51,15 @@ export function Footer() {
 	const currentYear = new Date().getFullYear();
 
 	const footerLinks = {
-		product: [
-			{ href: "/features", label: t("features") },
-			{ href: "/pricing", label: t("pricing") },
-			{ href: "/docs", label: t("documentation") },
+		cafe: [
+			{ href: "/#features", label: t("menu") },
+			{ href: "/#gallery", label: t("about") },
+			{ href: "/#hours", label: t("hours") },
 		],
-		company: [
-			{ href: "/about", label: t("about") },
-			{ href: "/blog", label: t("blog") },
-			{ href: "/careers", label: t("careers") },
+		information: [
+			{ href: "/#contact", label: t("contact") },
+			{ href: "/#hours", label: t("location") },
+			{ href: "/#reviews", label: t("about") },
 		],
 		legal: [
 			{ href: "/privacy", label: t("privacy") },
@@ -112,11 +112,11 @@ export function Footer() {
 						)}
 					</div>
 
-					{/* Product Links */}
-					<nav aria-label="Product navigation">
-						<h4 className="mb-4 text-sm font-semibold">{t("product")}</h4>
+					{/* Cafe Links */}
+					<nav aria-label="Cafe navigation">
+						<h4 className="mb-4 text-sm font-semibold">{t("cafe")}</h4>
 						<ul className="space-y-2">
-							{footerLinks.product.map((link) => (
+							{footerLinks.cafe.map((link) => (
 								<li key={link.href}>
 									<Link
 										href={link.href}
@@ -129,11 +129,11 @@ export function Footer() {
 						</ul>
 					</nav>
 
-					{/* Company Links */}
-					<nav aria-label="Company navigation">
-						<h4 className="mb-4 text-sm font-semibold">{t("company")}</h4>
+					{/* Information Links */}
+					<nav aria-label="Information navigation">
+						<h4 className="mb-4 text-sm font-semibold">{t("information")}</h4>
 						<ul className="space-y-2">
-							{footerLinks.company.map((link) => (
+							{footerLinks.information.map((link) => (
 								<li key={link.href}>
 									<Link
 										href={link.href}

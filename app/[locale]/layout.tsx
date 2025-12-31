@@ -11,6 +11,7 @@ import { ErrorHandlers } from "@/components/error-handlers";
 import { routing } from "@/i18n/routing";
 import { defaultMetadata } from "@/lib/metadata";
 import {
+	createLocalBusinessSchema,
 	createOrganizationSchema,
 	createWebSiteSchema,
 	generateStructuredDataScript,
@@ -75,10 +76,10 @@ export default async function LocaleLayout({
 	const messages = await getMessages();
 
 	const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
-	const siteName = process.env.NEXT_PUBLIC_SITE_NAME || "Website Starter";
+	const siteName = process.env.NEXT_PUBLIC_SITE_NAME || "Cafe Jardim";
 	const siteDescription =
 		process.env.NEXT_PUBLIC_SITE_DESCRIPTION ||
-		"A modern website starter template built with Next.js, TypeScript, and Tailwind CSS";
+		"Experience the perfect blend of artisan coffee, fresh food, and warm hospitality in São Lourenço, Portugal.";
 
 	const schemas = [
 		createOrganizationSchema(),
@@ -86,6 +87,17 @@ export default async function LocaleLayout({
 			name: siteName,
 			url: siteUrl,
 			description: siteDescription,
+		}),
+		createLocalBusinessSchema({
+			name: siteName,
+			url: siteUrl,
+			telephone: process.env.NEXT_PUBLIC_BUSINESS_PHONE,
+			address: {
+				streetAddress: process.env.NEXT_PUBLIC_BUSINESS_ADDRESS,
+				addressLocality: "São Lourenço",
+				addressRegion: "Lisboa",
+				addressCountry: "PT",
+			},
 		}),
 	];
 

@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
-const siteName = process.env.NEXT_PUBLIC_SITE_NAME || "Website Starter";
+const siteName = process.env.NEXT_PUBLIC_SITE_NAME || "Cafe Jardim";
 const siteDescription =
 	process.env.NEXT_PUBLIC_SITE_DESCRIPTION ||
-	"A modern website starter template built with Next.js, TypeScript, and Tailwind CSS";
+	"Experience the perfect blend of artisan coffee, fresh food, and warm hospitality in São Lourenço, Portugal. A cozy cafe where every cup tells a story.";
 const siteKeywords = process.env.NEXT_PUBLIC_SITE_KEYWORDS
 	? process.env.NEXT_PUBLIC_SITE_KEYWORDS.split(",").map((k) => k.trim())
-	: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Website"];
+	: ["cafe", "coffee", "São Lourenço", "Portugal", "restaurant", "pastries", "breakfast", "lunch"];
 const authorName = process.env.NEXT_PUBLIC_AUTHOR_NAME || "Your Name";
 const creatorName = process.env.NEXT_PUBLIC_CREATOR_NAME || "Your Name";
 const twitterHandle = process.env.NEXT_PUBLIC_TWITTER_HANDLE || "@yourusername";
