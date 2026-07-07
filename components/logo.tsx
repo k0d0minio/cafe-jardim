@@ -2,6 +2,9 @@ import Image from "next/image";
 
 const LOGO_SRC = {
 	green: "/images/brand/logos/png/jardim-logo-primary-green.png",
+	// Cream wordmark on a transparent background (derived from the green
+	// lockup's shape) — for use over dark / photographic surfaces.
+	cream: "/images/brand/logos/png/jardim-logo-wordmark-cream.png",
 	white: "/images/brand/logos/png/jardim-logo-mono-white.png",
 	botanical: "/images/brand/logos/png/jardim-logo-botanical-green.png",
 } as const;

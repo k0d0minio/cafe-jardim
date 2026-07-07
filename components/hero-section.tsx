@@ -101,10 +101,10 @@ export function HeroSection({
 				>
 					<motion.div variants={itemVariants} className="flex justify-center">
 						<Logo
-							variant="white"
+							variant="cream"
 							height={128}
 							priority
-							className="h-24 w-auto mix-blend-screen sm:h-32 md:h-40"
+							className="h-24 w-auto sm:h-32 md:h-40"
 						/>
 					</motion.div>
 

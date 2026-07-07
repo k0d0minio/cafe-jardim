@@ -75,7 +75,7 @@ export function Footer() {
 				<div className="grid grid-cols-1 gap-10 md:grid-cols-4">
 					{/* Brand */}
 					<div className="space-y-4">
-						<Logo variant="white" height={40} className="mix-blend-screen" />
+						<Logo variant="cream" height={40} />
 						<p className="text-sm text-brand-cream/70">{siteDescription}</p>
 						{(businessEmail || businessPhone || businessAddress) && (
 							<div className="space-y-2 text-sm text-brand-cream/80">
