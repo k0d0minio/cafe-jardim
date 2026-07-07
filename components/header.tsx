@@ -5,47 +5,45 @@ import { Menu, X } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Logo } from "@/components/logo";
 import { Link } from "@/i18n/routing";
-
-const businessName =
-	process.env.NEXT_PUBLIC_BUSINESS_NAME ||
-	process.env.NEXT_PUBLIC_SITE_NAME ||
-	"Logo";
 
 export function Header() {
 	const t = useTranslations("header");
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
 	const navItems = [
-		{ href: "/", label: t("home") },
-		{ href: "/#features", label: t("menu") },
-		{ href: "/#gallery", label: t("about") },
+		{ href: "/#menu", label: t("menu") },
+		{ href: "/#gallery", label: t("gallery") },
+		{ href: "/#hours", label: t("hours") },
 		{ href: "/#contact", label: t("contact") },
 	];
 
 	return (
-		<header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-			<nav className="container flex h-16 items-center justify-between px-4">
+		<header className="sticky top-0 z-50 w-full border-b border-primary/10 bg-background/85 backdrop-blur supports-[backdrop-filter]:bg-background/70">
+			<nav className="container flex h-20 items-center justify-between px-4">
 				<Link
 					href="/"
-					className="flex items-center space-x-2"
-					aria-label={`${businessName} - ${t("home")}`}
+					className="flex items-center"
+					aria-label={`Jardim — ${t("home")}`}
 				>
-					<span className="text-xl font-bold">{businessName}</span>
+					<Logo variant="green" height={40} priority />
 				</Link>
 
 				{/* Desktop Navigation */}
-				<div className="hidden md:flex md:items-center md:space-x-6">
+				<div className="hidden md:flex md:items-center md:space-x-7">
 					{navItems.map((item) => (
 						<Link
 							key={item.href}
 							href={item.href}
-							className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+							className="text-sm font-medium text-foreground/70 transition-colors hover:text-primary"
 						>
 							{item.label}
 						</Link>
 					))}
-					<Button size="sm">{t("visitUs")}</Button>
+					<Button size="sm" asChild>
+						<Link href="/#contact">{t("visitUs")}</Link>
+					</Button>
 				</div>
 
 				{/* Mobile Menu Button */}
@@ -84,14 +82,19 @@ export function Header() {
 									key={item.href}
 									href={item.href}
 									role="menuitem"
-									className="block py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+									className="block py-2 text-sm font-medium text-foreground/70 transition-colors hover:text-primary"
 									onClick={() => setMobileMenuOpen(false)}
 								>
 									{item.label}
 								</Link>
 							))}
-							<Button className="w-full mt-4" size="sm">
-								{t("visitUs")}
+							<Button className="w-full mt-4" size="sm" asChild>
+								<Link
+									href="/#contact"
+									onClick={() => setMobileMenuOpen(false)}
+								>
+									{t("visitUs")}
+								</Link>
 							</Button>
 						</div>
 					</motion.div>

@@ -2,6 +2,8 @@
 	"header": {
 		"home": "Início",
 		"menu": "Menu",
+		"gallery": "Galeria",
+		"hours": "Horários",
 		"about": "Sobre",
 		"contact": "Contacto",
 		"visitUs": "Visite-nos",
@@ -13,8 +15,9 @@
 		"information": "Informação",
 		"legal": "Legal",
 		"menu": "Menu",
-		"about": "Sobre",
+		"about": "Galeria",
 		"location": "Localização",
+		"contact": "Contacto",
 		"hours": "Horários",
 		"privacy": "Privacidade",
 		"terms": "Termos",
@@ -22,41 +25,49 @@
 		"allRightsReserved": "Todos os direitos reservados."
 	},
 	"hero": {
-		"title": "Bem-vindo ao Café Jardim",
-		"subtitle": "São Lourenço, Portugal",
-		"description": "Experimente a combinação perfeita de café artesanal, comida fresca e hospitalidade calorosa no coração de São Lourenço. Um refúgio acolhedor onde cada chávena conta uma história.",
+		"title": "Onde o café encontra a arte.",
+		"subtitle": "Café · Galeria — São Lourenço",
+		"description": "Um café e galeria de arte em São Lourenço. Manhãs tranquilas, uma cozinha de estação e paredes que mudam a cada exposição.",
 		"visitUs": "Visite-nos",
 		"viewMenu": "Ver Menu"
 	},
 	"features": {
-		"title": "O Que Oferecemos",
-		"description": "Descubra o que torna o Café Jardim especial.",
+		"eyebrow": "A experiência Jardim",
+		"title": "Um jardim para os sentidos",
+		"description": "Meio café, meio galeria — um espaço botânico e acolhedor para comer, ficar e contemplar.",
 		"artisanCoffee": {
 			"title": "Café Artesanal",
-			"description": "Grãos cuidadosamente selecionados, torrados e preparados com perfeição. Cada chávena é uma celebração de sabor."
+			"description": "Grãos cuidadosamente selecionados, torrados e preparados com perfeição. Cada chávena é uma pequena celebração de sabor."
 		},
 		"freshFood": {
-			"title": "Comida Fresca",
-			"description": "Refeições e pastelaria preparadas diariamente com os melhores ingredientes locais. Do pequeno-almoço ao almoço, temos tudo para si."
+			"title": "Cozinha de Estação",
+			"description": "Brunch, tábuas de mezze, poke e pequenos pratos — preparados diariamente com ingredientes frescos e locais."
+		},
+		"artGallery": {
+			"title": "Galeria de Arte",
+			"description": "Exposições rotativas, inaugurações e conversas com artistas. Há sempre algo novo nas paredes."
 		},
 		"cozyAtmosphere": {
-			"title": "Ambiente Acolhedor",
-			"description": "Um espaço acolhedor onde pode relaxar, trabalhar ou conversar com amigos. O conforto encontra o estilo em cada canto."
-		},
-		"friendlyService": {
-			"title": "Serviço Amigável",
-			"description": "A nossa equipa está dedicada a tornar a sua visita memorável. Estamos aqui para garantir que tenha a melhor experiência possível."
+			"title": "Espaço Botânico",
+			"description": "Verde-floresta, luz quente e plantas em cada canto — um jardim de onde nunca se quer sair."
 		}
 	},
+	"menu": {
+		"eyebrow": "Da cozinha",
+		"title": "Feito para partilhar",
+		"description": "Uma amostra do que se cozinha — de tábuas de mezze a poke bowls e tacos.",
+		"viewFull": "Ver o menu completo"
+	},
 	"cta": {
-		"title": "Pronto para nos Visitar?",
-		"description": "Venha experimentar o calor e o sabor do Café Jardim. Estamos ansiosos por recebê-lo!",
+		"title": "Venha sentar-se no jardim",
+		"description": "Seja um café de manhã, um brunch demorado ou uma inauguração — há sempre um lugar para si no Jardim.",
 		"visitUs": "Visite-nos",
 		"contactUs": "Contacte-nos"
 	},
 	"contact": {
+		"eyebrow": "Diga olá",
 		"title": "Entre em Contacto",
-		"description": "Tem uma pergunta, quer fazer uma reserva ou apenas dizer olá? Envie-nos uma mensagem e responderemos o mais breve possível.",
+		"description": "Tem uma pergunta, quer reservar mesa ou planear um evento na galeria? Envie-nos uma mensagem e responderemos rapidamente.",
 		"form": {
 			"name": "Nome",
 			"namePlaceholder": "O seu nome",
@@ -73,6 +84,7 @@
 		}
 	},
 	"openingHours": {
+		"eyebrow": "Apareça",
 		"title": "Horário de Funcionamento",
 		"description": "Estamos aqui para o servir",
 		"closed": "Fechado",
@@ -89,14 +101,16 @@
 		}
 	},
 	"reviews": {
+		"eyebrow": "Palavras gentis",
 		"title": "O Que Dizem os Nossos Clientes",
 		"description": "Não acredite apenas na nossa palavra",
 		"readMore": "Ler mais",
 		"readLess": "Ler menos"
 	},
 	"gallery": {
-		"title": "O Nosso Café",
-		"description": "Dê uma olhadela"
+		"eyebrow": "Galeria",
+		"title": "Arte, inaugurações e o espaço",
+		"description": "Um olhar dentro do Jardim — as exposições, as noites e a sala onde vivem."
 	},
 	"privacy": {
 		"title": "Política de Privacidade",
@@ -118,4 +132,3 @@
 		"skipToContent": "Saltar para o conteúdo principal"
 	}
 }
-

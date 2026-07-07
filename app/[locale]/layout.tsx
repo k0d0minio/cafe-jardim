@@ -1,7 +1,7 @@
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Poppins, Roboto } from "next/font/google";
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
@@ -18,14 +18,20 @@ import {
 } from "@/lib/seo/structured-data";
 import "../globals.css";
 
-const inter = Inter({
-	variable: "--font-geist-sans",
+// Roboto — body / UI text (per Jardim brand guidelines)
+const roboto = Roboto({
+	variable: "--font-sans",
 	subsets: ["latin"],
+	weight: ["400", "500", "700"],
+	display: "swap",
 });
 
-const jetbrainsMono = JetBrains_Mono({
-	variable: "--font-geist-mono",
+// Poppins — display / headings (per Jardim brand guidelines)
+const poppins = Poppins({
+	variable: "--font-display",
 	subsets: ["latin"],
+	weight: ["500", "600", "700", "800"],
+	display: "swap",
 });
 
 export function generateStaticParams() {
@@ -106,7 +112,7 @@ export default async function LocaleLayout({
 	return (
 		<html lang={locale}>
 			<body
-				className={`${inter.variable} ${jetbrainsMono.variable} antialiased`}
+				className={`${roboto.variable} ${poppins.variable} font-sans antialiased`}
 			>
 				<script
 					id="structured-data"

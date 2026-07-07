@@ -63,25 +63,33 @@ export function CTASection({
 	className,
 }: CTASectionProps) {
 	return (
-		<section className={`py-20 md:py-32 ${className || ""}`}>
+		<section className={`py-20 md:py-28 ${className || ""}`}>
 			<div className="container px-4">
 				<motion.div
 					initial={{ opacity: 0, y: 20 }}
 					whileInView={{ opacity: 1, y: 0 }}
 					viewport={{ once: true }}
 					transition={{ duration: 0.5 }}
-					className="mx-auto max-w-3xl rounded-lg border bg-muted/50 p-8 text-center md:p-12"
+					className="relative mx-auto max-w-4xl overflow-hidden rounded-3xl bg-primary p-10 text-center text-brand-cream md:p-16"
 				>
-					<h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
+					{/* Botanical wordmark watermark */}
+					<div
+						className="pointer-events-none absolute -right-10 -top-10 h-52 w-52 bg-contain bg-top-right bg-no-repeat opacity-10"
+						style={{
+							backgroundImage:
+								"url(/images/brand/logos/png/jardim-logo-botanical-cream.png)",
+						}}
+					/>
+					<h2 className="relative text-3xl font-semibold tracking-tight text-brand-cream sm:text-4xl md:text-5xl">
 						{title}
 					</h2>
-					<p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
+					<p className="relative mx-auto mt-4 max-w-2xl text-lg text-brand-cream/80">
 						{description}
 					</p>
 					{(primaryAction || secondaryAction) && (
-						<div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+						<div className="relative mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
 							{primaryAction && (
-								<Button size="lg" asChild>
+								<Button size="lg" variant="secondary" asChild>
 									<Link href={primaryAction.href}>
 										{primaryAction.label}
 										{primaryAction.showArrow && (
@@ -91,7 +99,12 @@ export function CTASection({
 								</Button>
 							)}
 							{secondaryAction && (
-								<Button size="lg" variant="outline" asChild>
+								<Button
+									size="lg"
+									variant="outline"
+									className="border-brand-cream/40 bg-transparent text-brand-cream hover:bg-brand-cream hover:text-primary"
+									asChild
+								>
 									<Link
 										href={secondaryAction.href}
 										target={secondaryAction.external ? "_blank" : undefined}

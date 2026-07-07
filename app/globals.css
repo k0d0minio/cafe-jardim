@@ -21,52 +21,69 @@
 	--color-input: hsl(var(--input));
 	--color-ring: hsl(var(--ring));
 	--radius: var(--radius);
+
+	--color-brand-green: hsl(var(--brand-green));
+	--color-brand-cream: hsl(var(--brand-cream));
+
+	--font-sans: var(--font-sans), "Helvetica Neue", Arial, sans-serif;
+	--font-display: var(--font-display), var(--font-sans), sans-serif;
 }
 
 @layer base {
+	/*
+	 * Jardim — Café · Galeria brand system.
+	 * Two-colour palette from the official guidelines (p.7):
+	 *   brand-green #00453A  ->  hsl(170 100% 13.5%)
+	 *   brand-cream #F7E1C3  ->  hsl(35 76% 87%)
+	 */
 	:root {
-		--background: 0 0% 100%;
-		--foreground: 222.2 84% 4.9%;
+		--brand-green: 170 100% 13.5%;
+		--brand-cream: 35 76% 87%;
+
+		/* Warm, near-white cream page background */
+		--background: 38 44% 97%;
+		--foreground: 172 60% 9%;
 		--card: 0 0% 100%;
-		--card-foreground: 222.2 84% 4.9%;
+		--card-foreground: 172 60% 9%;
 		--popover: 0 0% 100%;
-		--popover-foreground: 222.2 84% 4.9%;
-		--primary: 222.2 47.4% 11.2%;
-		--primary-foreground: 210 40% 98%;
-		--secondary: 210 40% 96.1%;
-		--secondary-foreground: 222.2 47.4% 11.2%;
-		--muted: 210 40% 96.1%;
-		--muted-foreground: 215.4 16.3% 46.9%;
-		--accent: 210 40% 96.1%;
-		--accent-foreground: 222.2 47.4% 11.2%;
-		--destructive: 0 84.2% 60.2%;
-		--destructive-foreground: 210 40% 98%;
-		--border: 214.3 31.8% 91.4%;
-		--input: 214.3 31.8% 91.4%;
-		--ring: 222.2 84% 4.9%;
-		--radius: 0.5rem;
+		--popover-foreground: 172 60% 9%;
+		--primary: 170 100% 13.5%;
+		--primary-foreground: 35 76% 90%;
+		--secondary: 35 62% 88%;
+		--secondary-foreground: 170 100% 13.5%;
+		--muted: 36 34% 92%;
+		--muted-foreground: 172 18% 34%;
+		--accent: 35 62% 85%;
+		--accent-foreground: 170 100% 13.5%;
+		--destructive: 0 72% 42%;
+		--destructive-foreground: 35 76% 92%;
+		--border: 36 28% 85%;
+		--input: 36 28% 85%;
+		--ring: 170 100% 13.5%;
+		--radius: 0.75rem;
 	}
 
+	/* Elegant "green mode" — deep forest with cream ink */
 	.dark {
-		--background: 222.2 84% 4.9%;
-		--foreground: 210 40% 98%;
-		--card: 222.2 84% 4.9%;
-		--card-foreground: 210 40% 98%;
-		--popover: 222.2 84% 4.9%;
-		--popover-foreground: 210 40% 98%;
-		--primary: 210 40% 98%;
-		--primary-foreground: 222.2 47.4% 11.2%;
-		--secondary: 217.2 32.6% 17.5%;
-		--secondary-foreground: 210 40% 98%;
-		--muted: 217.2 32.6% 17.5%;
-		--muted-foreground: 215 20.2% 65.1%;
-		--accent: 217.2 32.6% 17.5%;
-		--accent-foreground: 210 40% 98%;
-		--destructive: 0 62.8% 30.6%;
-		--destructive-foreground: 210 40% 98%;
-		--border: 217.2 32.6% 17.5%;
-		--input: 217.2 32.6% 17.5%;
-		--ring: 212.7 26.8% 83.9%;
+		--background: 172 78% 7%;
+		--foreground: 35 62% 90%;
+		--card: 171 55% 11%;
+		--card-foreground: 35 62% 90%;
+		--popover: 171 55% 11%;
+		--popover-foreground: 35 62% 90%;
+		--primary: 35 76% 87%;
+		--primary-foreground: 170 100% 13.5%;
+		--secondary: 171 40% 16%;
+		--secondary-foreground: 35 62% 90%;
+		--muted: 171 40% 15%;
+		--muted-foreground: 35 24% 72%;
+		--accent: 171 40% 18%;
+		--accent-foreground: 35 62% 90%;
+		--destructive: 0 62% 45%;
+		--destructive-foreground: 35 62% 92%;
+		--border: 171 34% 18%;
+		--input: 171 34% 18%;
+		--ring: 35 76% 87%;
 	}
 }
 
@@ -76,7 +93,26 @@
 	}
 	body {
 		@apply bg-background text-foreground;
-		font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+		font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+	}
+
+	/* Display type — Poppins, per brand guidelines. Applied to headings. */
+	h1,
+	h2,
+	h3,
+	.font-display {
+		font-family: var(--font-display), sans-serif;
+	}
+}
+
+@utility font-display {
+	font-family: var(--font-display), sans-serif;
+}
+
+@layer components {
+	/* Section eyebrow label — cream chip used across the site */
+	.eyebrow {
+		@apply inline-flex items-center gap-2 rounded-full border border-primary/15 bg-secondary px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-primary;
 	}
 
 	/* Screen reader only utility */

@@ -2,6 +2,8 @@
 	"header": {
 		"home": "Home",
 		"menu": "Menu",
+		"gallery": "Galeria",
+		"hours": "Hours",
 		"about": "About",
 		"contact": "Contact",
 		"visitUs": "Visit Us",
@@ -9,12 +11,13 @@
 		"closeMenu": "Close menu"
 	},
 	"footer": {
-		"cafe": "Cafe",
+		"cafe": "Café",
 		"information": "Information",
 		"legal": "Legal",
 		"menu": "Menu",
-		"about": "About",
+		"about": "Galeria",
 		"location": "Location",
+		"contact": "Contact",
 		"hours": "Hours",
 		"privacy": "Privacy",
 		"terms": "Terms",
@@ -22,41 +25,49 @@
 		"allRightsReserved": "All rights reserved."
 	},
 	"hero": {
-		"title": "Welcome to Cafe Jardim",
-		"subtitle": "São Lourenço, Portugal",
-		"description": "Experience the perfect blend of artisan coffee, fresh food, and warm hospitality in the heart of São Lourenço. A cozy haven where every cup tells a story.",
+		"title": "Where coffee meets canvas.",
+		"subtitle": "Café · Galeria — São Lourenço",
+		"description": "A café and art gallery tucked into São Lourenço. Slow mornings, a seasonal kitchen, and walls that change with every exhibition.",
 		"visitUs": "Visit Us",
 		"viewMenu": "View Menu"
 	},
 	"features": {
-		"title": "What We Offer",
-		"description": "Discover what makes Cafe Jardim special.",
+		"eyebrow": "The Jardim experience",
+		"title": "A garden for the senses",
+		"description": "Part café, part gallery — a warm, botanical space to eat, linger, and look.",
 		"artisanCoffee": {
 			"title": "Artisan Coffee",
-			"description": "Carefully selected beans, expertly roasted and brewed to perfection. Every cup is a celebration of flavor."
+			"description": "Carefully sourced beans, expertly roasted and brewed. Every cup is a small celebration of flavour."
 		},
 		"freshFood": {
-			"title": "Fresh Food",
-			"description": "Daily prepared meals and pastries using the finest local ingredients. From breakfast to lunch, we've got you covered."
+			"title": "Seasonal Kitchen",
+			"description": "Brunch, mezze boards, poke and small plates — prepared daily with fresh, local ingredients."
+		},
+		"artGallery": {
+			"title": "Art Gallery",
+			"description": "Rotating exhibitions, openings and artist talks. There is always something new on the walls."
 		},
 		"cozyAtmosphere": {
-			"title": "Cozy Atmosphere",
-			"description": "A welcoming space where you can relax, work, or catch up with friends. Comfort meets style in every corner."
-		},
-		"friendlyService": {
-			"title": "Friendly Service",
-			"description": "Our team is dedicated to making your visit memorable. We're here to ensure you have the best experience possible."
+			"title": "Botanical Space",
+			"description": "Forest green, warm light and plants in every corner — a garden you never quite want to leave."
 		}
 	},
+	"menu": {
+		"eyebrow": "From the kitchen",
+		"title": "Made to be shared",
+		"description": "A taste of what's cooking — from mezze boards to poke bowls and street tacos.",
+		"viewFull": "View the full menu"
+	},
 	"cta": {
-		"title": "Ready to Visit?",
-		"description": "Come experience the warmth and flavor of Cafe Jardim. We're looking forward to welcoming you!",
+		"title": "Come sit in the garden",
+		"description": "Whether it's a morning coffee, a long brunch, or an exhibition opening — there's always a seat for you at Jardim.",
 		"visitUs": "Visit Us",
 		"contactUs": "Contact Us"
 	},
 	"contact": {
+		"eyebrow": "Say hello",
 		"title": "Get in Touch",
-		"description": "Have a question, want to make a reservation, or just say hello? Send us a message and we'll get back to you as soon as possible.",
+		"description": "Have a question, want to book a table, or planning an event in the gallery? Send us a message and we'll get right back to you.",
 		"form": {
 			"name": "Name",
 			"namePlaceholder": "Your name",
@@ -73,6 +84,7 @@
 		}
 	},
 	"openingHours": {
+		"eyebrow": "Come by",
 		"title": "Opening Hours",
 		"description": "We're here to serve you",
 		"closed": "Closed",
@@ -89,14 +101,16 @@
 		}
 	},
 	"reviews": {
-		"title": "What Our Customers Say",
+		"eyebrow": "Kind words",
+		"title": "What Our Guests Say",
 		"description": "Don't just take our word for it",
 		"readMore": "Read more",
 		"readLess": "Read less"
 	},
 	"gallery": {
-		"title": "Our Cafe",
-		"description": "Take a look inside"
+		"eyebrow": "Galeria",
+		"title": "Art, openings & the space",
+		"description": "A look inside Jardim — the exhibitions, the evenings, and the room they live in."
 	},
 	"privacy": {
 		"title": "Privacy Policy",

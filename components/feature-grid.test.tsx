@@ -30,12 +30,12 @@ vi.mock("framer-motion", async () => {
 
 const customFeatures: FeatureItem[] = [
 	{
-		icon: "zap",
+		icon: "coffee",
 		title: "Fast",
 		description: "Lightning fast performance",
 	},
 	{
-		icon: "shield",
+		icon: "food",
 		title: "Secure",
 		description: "Enterprise-grade security",
 	},
@@ -49,12 +49,12 @@ describe("FeatureGrid", () => {
 				description="A complete toolkit for building modern websites"
 				features={[
 					{
-						icon: "zap",
+						icon: "coffee",
 						title: "Lightning Fast",
 						description: "Fast performance",
 					},
 					{
-						icon: "shield",
+						icon: "food",
 						title: "Type Safe",
 						description: "TypeScript support",
 					},

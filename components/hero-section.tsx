@@ -2,7 +2,9 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
+import { Logo } from "@/components/logo";
 import { Button } from "@/components/ui/button";
 
 const containerVariants = {
@@ -10,18 +12,20 @@ const containerVariants = {
 	visible: {
 		opacity: 1,
 		transition: {
-			staggerChildren: 0.2,
+			staggerChildren: 0.15,
+			delayChildren: 0.1,
 		},
 	},
 };
 
 const itemVariants = {
-	hidden: { opacity: 0, y: 20 },
+	hidden: { opacity: 0, y: 24 },
 	visible: {
 		opacity: 1,
 		y: 0,
 		transition: {
-			duration: 0.5,
+			duration: 0.6,
+			ease: [0.22, 1, 0.36, 1] as const,
 		},
 	},
 };
@@ -33,49 +37,29 @@ const itemVariants = {
 export interface HeroSectionProps {
 	/** Main headline text */
 	title: string;
-	/** Subtitle text (displayed in muted color) */
+	/** Subtitle text (eyebrow / location) */
 	subtitle?: string;
 	/** Description paragraph text */
 	description?: string;
 	/** Primary call-to-action button configuration */
 	primaryAction?: {
-		/** Button label */
 		label: string;
-		/** Button link href */
 		href: string;
-		/** Show arrow icon */
 		showArrow?: boolean;
 	};
 	/** Secondary call-to-action button configuration */
 	secondaryAction?: {
-		/** Button label */
 		label: string;
-		/** Button link href */
 		href: string;
 	};
-	/** Additional CSS classes */
+	/** Background photograph */
+	imageSrc?: string;
 	className?: string;
 }
 
 /**
- * Hero section component with animated content and call-to-action buttons.
- *
- * Displays a prominent hero section with customizable title, subtitle, description,
- * and action buttons. Includes smooth animations using Framer Motion.
- *
- * @param props - HeroSection configuration props
- * @returns A hero section React component
- *
- * @example
- * ```tsx
- * <HeroSection
- *   title="Welcome to Our Site"
- *   subtitle="Building the Future"
- *   description="We create amazing products"
- *   primaryAction={{ label: "Get Started", href: "/signup", showArrow: true }}
- *   secondaryAction={{ label: "Learn More", href: "/about" }}
- * />
- * ```
+ * Full-bleed brand hero for Jardim — a forest-green photographic banner with
+ * the white wordmark, tagline and calls to action.
  */
 export function HeroSection({
 	title,
@@ -83,33 +67,67 @@ export function HeroSection({
 	description,
 	primaryAction,
 	secondaryAction,
+	imageSrc = "/images/events/venue-interior-01-window-nook-paintings.jpeg",
 	className,
 }: HeroSectionProps) {
 	return (
 		<section
-			className={`relative overflow-hidden border-b py-20 md:py-32 ${className || ""}`}
+			className={`relative flex min-h-[88vh] items-center overflow-hidden ${className || ""}`}
 		>
-			<div className="container px-4">
+			{/* Photograph */}
+			<Image
+				src={imageSrc}
+				alt=""
+				fill
+				priority
+				className="object-cover"
+				sizes="100vw"
+			/>
+			{/* Brand-green wash for contrast + warmth */}
+			<div
+				className="absolute inset-0"
+				style={{
+					background:
+						"linear-gradient(180deg, hsl(var(--brand-green) / 0.72) 0%, hsl(var(--brand-green) / 0.80) 55%, hsl(var(--brand-green) / 0.92) 100%)",
+				}}
+			/>
+
+			<div className="container relative z-10 px-4 py-24">
 				<motion.div
 					variants={containerVariants}
 					initial="hidden"
 					animate="visible"
 					className="mx-auto max-w-3xl text-center"
 				>
+					<motion.div variants={itemVariants} className="flex justify-center">
+						<Logo
+							variant="white"
+							height={128}
+							priority
+							className="h-24 w-auto mix-blend-screen sm:h-32 md:h-40"
+						/>
+					</motion.div>
+
+					{subtitle && (
+						<motion.p
+							variants={itemVariants}
+							className="mt-6 text-sm font-semibold uppercase tracking-[0.32em] text-brand-cream/90"
+						>
+							{subtitle}
+						</motion.p>
+					)}
+
 					<motion.h1
 						variants={itemVariants}
-						className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
+						className="mt-5 font-display text-3xl font-semibold leading-tight text-brand-cream sm:text-4xl md:text-5xl"
 					>
 						{title}
-						{subtitle && (
-							<span className="block text-muted-foreground">{subtitle}</span>
-						)}
 					</motion.h1>
 
 					{description && (
 						<motion.p
 							variants={itemVariants}
-							className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground sm:text-xl"
+							className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-brand-cream/85"
 						>
 							{description}
 						</motion.p>
@@ -121,7 +139,7 @@ export function HeroSection({
 							className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
 						>
 							{primaryAction && (
-								<Button size="lg" asChild>
+								<Button size="lg" variant="secondary" asChild>
 									<Link href={primaryAction.href}>
 										{primaryAction.label}
 										{primaryAction.showArrow && (
@@ -131,7 +149,12 @@ export function HeroSection({
 								</Button>
 							)}
 							{secondaryAction && (
-								<Button size="lg" variant="outline" asChild>
+								<Button
+									size="lg"
+									variant="outline"
+									className="border-brand-cream/40 bg-transparent text-brand-cream hover:bg-brand-cream hover:text-primary"
+									asChild
+								>
 									<Link href={secondaryAction.href}>
 										{secondaryAction.label}
 									</Link>

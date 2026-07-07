@@ -30,7 +30,8 @@ export function OpeningHours() {
 					transition={{ duration: 0.5 }}
 					className="mx-auto max-w-2xl text-center"
 				>
-					<h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
+					<span className="eyebrow">{t("eyebrow")}</span>
+					<h2 className="mt-5 text-3xl font-semibold tracking-tight text-primary sm:text-4xl md:text-5xl">
 						{t("title")}
 					</h2>
 					<p className="mt-4 text-lg text-muted-foreground">{t("description")}</p>

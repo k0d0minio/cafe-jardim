@@ -56,7 +56,7 @@ export function ReviewsSection() {
 	};
 
 	return (
-		<section id="reviews" className="py-20 md:py-32 bg-muted/30">
+		<section id="reviews" className="bg-secondary/50 py-20 md:py-28">
 			<div className="container px-4">
 				<motion.div
 					initial={{ opacity: 0, y: 20 }}
@@ -65,7 +65,8 @@ export function ReviewsSection() {
 					transition={{ duration: 0.5 }}
 					className="mx-auto max-w-2xl text-center"
 				>
-					<h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
+					<span className="eyebrow">{t("eyebrow")}</span>
+					<h2 className="mt-5 text-3xl font-semibold tracking-tight text-primary sm:text-4xl md:text-5xl">
 						{t("title")}
 					</h2>
 					<p className="mt-4 text-lg text-muted-foreground">
@@ -89,7 +90,7 @@ export function ReviewsSection() {
 
 						return (
 							<motion.div key={review.id} variants={cardVariants}>
-								<Card className="h-full flex flex-col">
+								<Card className="flex h-full flex-col border-primary/10 bg-card">
 									<CardHeader>
 										<div className="flex items-center justify-between mb-2">
 											<CardDescription className="font-semibold text-foreground">

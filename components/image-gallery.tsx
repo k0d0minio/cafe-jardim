@@ -39,7 +39,8 @@ export function ImageGallery() {
 					transition={{ duration: 0.5 }}
 					className="mx-auto max-w-2xl text-center"
 				>
-					<h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
+					<span className="eyebrow">{t("eyebrow")}</span>
+					<h2 className="mt-5 text-3xl font-semibold tracking-tight text-primary sm:text-4xl md:text-5xl">
 						{t("title")}
 					</h2>
 					<p className="mt-4 text-lg text-muted-foreground">
@@ -52,27 +53,32 @@ export function ImageGallery() {
 					initial="hidden"
 					whileInView="visible"
 					viewport={{ once: true }}
-					className="mx-auto mt-16 grid max-w-5xl grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"
+					className="mx-auto mt-16 grid max-w-6xl auto-rows-[220px] grid-cols-2 gap-4 md:grid-cols-4"
 				>
-					{galleryImages.map((image) => (
+					{galleryImages.map((image, i) => (
 						<motion.div
 							key={image.id}
 							variants={itemVariants}
-							className="group relative aspect-square overflow-hidden rounded-lg border"
+							className={`group relative overflow-hidden rounded-2xl ${
+								i === 0 ? "col-span-2 row-span-2" : ""
+							}`}
 						>
 							<Image
 								src={image.url}
 								alt={image.alt}
 								fill
-								className="object-cover transition-transform duration-300 group-hover:scale-110"
-								sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+								className="object-cover transition-transform duration-500 group-hover:scale-105"
+								sizes={
+									i === 0
+										? "(max-width: 768px) 100vw, 50vw"
+										: "(max-width: 768px) 50vw, 25vw"
+								}
 							/>
+							<div className="absolute inset-0 bg-linear-to-t from-primary/80 via-primary/10 to-transparent opacity-70 transition-opacity duration-300 group-hover:opacity-90" />
 							{image.title && (
-								<div className="absolute inset-0 bg-black/0 transition-colors duration-300 group-hover:bg-black/40 flex items-end">
-									<p className="w-full p-4 text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-										{image.title}
-									</p>
-								</div>
+								<p className="absolute bottom-0 left-0 p-4 font-display text-sm font-semibold text-brand-cream md:text-base">
+									{image.title}
+								</p>
 							)}
 						</motion.div>
 					))}

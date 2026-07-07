@@ -7,6 +7,7 @@ import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { HeroSection } from "@/components/hero-section";
 import { ImageGallery } from "@/components/image-gallery";
+import { MenuSection } from "@/components/menu-section";
 import { OpeningHours } from "@/components/opening-hours";
 import { ReviewsSection } from "@/components/reviews-section";
 import { createMetadata } from "@/lib/metadata";
@@ -23,7 +24,8 @@ export async function generateMetadata({
 	const { locale } = await params;
 	const t = await getTranslations({ locale });
 	const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
-	const siteName = process.env.NEXT_PUBLIC_SITE_NAME || "Website Starter";
+	const siteName =
+		process.env.NEXT_PUBLIC_SITE_NAME || "Jardim — Café · Galeria";
 
 	return createMetadata({
 		title: siteName,
@@ -81,31 +83,33 @@ export default async function Home({
 						}}
 					/>
 					<FeatureGrid
+						eyebrow={t("features.eyebrow")}
 						title={t("features.title")}
 						description={t("features.description")}
 						features={[
 							{
-								icon: "zap",
+								icon: "coffee",
 								title: t("features.artisanCoffee.title"),
 								description: t("features.artisanCoffee.description"),
 							},
 							{
-								icon: "shield",
+								icon: "food",
 								title: t("features.freshFood.title"),
 								description: t("features.freshFood.description"),
 							},
 							{
-								icon: "code",
+								icon: "art",
+								title: t("features.artGallery.title"),
+								description: t("features.artGallery.description"),
+							},
+							{
+								icon: "garden",
 								title: t("features.cozyAtmosphere.title"),
 								description: t("features.cozyAtmosphere.description"),
 							},
-							{
-								icon: "rocket",
-								title: t("features.friendlyService.title"),
-								description: t("features.friendlyService.description"),
-							},
 						]}
 					/>
+					<MenuSection />
 					<ImageGallery />
 					<OpeningHours />
 					<ReviewsSection />

@@ -1,7 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Code, type LucideIcon, Rocket, Shield, Zap } from "lucide-react";
+import {
+	Coffee,
+	type LucideIcon,
+	Palette,
+	Sprout,
+	UtensilsCrossed,
+} from "lucide-react";
 import {
 	Card,
 	CardDescription,
@@ -11,10 +17,10 @@ import {
 
 // Icon mapping for server-to-client component compatibility
 const iconMap: Record<string, LucideIcon> = {
-	zap: Zap,
-	shield: Shield,
-	code: Code,
-	rocket: Rocket,
+	coffee: Coffee,
+	food: UtensilsCrossed,
+	art: Palette,
+	garden: Sprout,
 };
 
 const containerVariants = {
@@ -56,6 +62,8 @@ export interface FeatureItem {
  * @public
  */
 export interface FeatureGridProps {
+	/** Small uppercase label above the title */
+	eyebrow?: string;
 	/** Section title */
 	title?: string;
 	/** Section description */
@@ -90,6 +98,7 @@ export interface FeatureGridProps {
  * ```
  */
 export function FeatureGrid({
+	eyebrow,
 	title,
 	description,
 	features,
@@ -97,7 +106,7 @@ export function FeatureGrid({
 	className,
 }: FeatureGridProps) {
 	return (
-		<section id={id} className={`py-20 md:py-32 ${className || ""}`}>
+		<section id={id} className={`py-20 md:py-28 ${className || ""}`}>
 			<div className="container px-4">
 				<motion.div
 					initial={{ opacity: 0, y: 20 }}
@@ -106,7 +115,8 @@ export function FeatureGrid({
 					transition={{ duration: 0.5 }}
 					className="mx-auto max-w-2xl text-center"
 				>
-					<h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
+					{eyebrow && <span className="eyebrow">{eyebrow}</span>}
+					<h2 className="mt-5 text-3xl font-semibold tracking-tight text-primary sm:text-4xl md:text-5xl">
 						{title}
 					</h2>
 					<p className="mt-4 text-lg text-muted-foreground">{description}</p>
@@ -118,7 +128,7 @@ export function FeatureGrid({
 						initial="hidden"
 						whileInView="visible"
 						viewport={{ once: true }}
-						className="mx-auto mt-16 grid max-w-5xl grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4"
+						className="mx-auto mt-16 grid max-w-5xl grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4"
 					>
 						{features.map((feature) => {
 							const Icon = iconMap[feature.icon.toLowerCase()];
@@ -128,13 +138,17 @@ export function FeatureGrid({
 							}
 							return (
 								<motion.div key={feature.title} variants={cardVariants}>
-									<Card className="h-full">
+									<Card className="group h-full border-primary/10 bg-card shadow-sm transition-shadow duration-300 hover:shadow-md">
 										<CardHeader>
-											<div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
-												<Icon className="h-6 w-6 text-primary" />
+											<div className="mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-secondary text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-brand-cream">
+												<Icon className="h-6 w-6" />
 											</div>
-											<CardTitle>{feature.title}</CardTitle>
-											<CardDescription>{feature.description}</CardDescription>
+											<CardTitle className="text-primary">
+												{feature.title}
+											</CardTitle>
+											<CardDescription className="leading-relaxed">
+												{feature.description}
+											</CardDescription>
 										</CardHeader>
 									</Card>
 								</motion.div>
