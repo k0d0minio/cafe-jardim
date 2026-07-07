@@ -4,8 +4,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/logo";
+import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/routing";
 
 export function Header() {
@@ -15,7 +15,8 @@ export function Header() {
 	const navItems = [
 		{ href: "/#menu", label: t("menu") },
 		{ href: "/#gallery", label: t("gallery") },
-		{ href: "/#hours", label: t("hours") },
+		{ href: "/catering", label: t("catering") },
+		{ href: "/events", label: t("events") },
 		{ href: "/#contact", label: t("contact") },
 	];
 
@@ -89,10 +90,7 @@ export function Header() {
 								</Link>
 							))}
 							<Button className="w-full mt-4" size="sm" asChild>
-								<Link
-									href="/#contact"
-									onClick={() => setMobileMenuOpen(false)}
-								>
+								<Link href="/#contact" onClick={() => setMobileMenuOpen(false)}>
 									{t("visitUs")}
 								</Link>
 							</Button>

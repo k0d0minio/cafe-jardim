@@ -58,8 +58,8 @@ export function Footer() {
 			{ href: "/#hours", label: t("hours") },
 		],
 		information: [
-			{ href: "/#reviews", label: t("about") },
-			{ href: "/#contact", label: t("location") },
+			{ href: "/catering", label: t("catering") },
+			{ href: "/events", label: t("events") },
 			{ href: "/#contact", label: t("contact") },
 		],
 		legal: [
@@ -115,7 +115,9 @@ export function Footer() {
 
 					{/* Cafe Links */}
 					<nav aria-label="Cafe navigation">
-						<h4 className="mb-4 text-sm font-semibold text-brand-cream">{t("cafe")}</h4>
+						<h4 className="mb-4 text-sm font-semibold text-brand-cream">
+							{t("cafe")}
+						</h4>
 						<ul className="space-y-2">
 							{footerLinks.cafe.map((link) => (
 								<li key={link.href}>
@@ -132,7 +134,9 @@ export function Footer() {
 
 					{/* Information Links */}
 					<nav aria-label="Information navigation">
-						<h4 className="mb-4 text-sm font-semibold text-brand-cream">{t("information")}</h4>
+						<h4 className="mb-4 text-sm font-semibold text-brand-cream">
+							{t("information")}
+						</h4>
 						<ul className="space-y-2">
 							{footerLinks.information.map((link) => (
 								<li key={link.href}>
@@ -149,7 +153,9 @@ export function Footer() {
 
 					{/* Legal Links */}
 					<nav aria-label="Legal navigation">
-						<h4 className="mb-4 text-sm font-semibold text-brand-cream">{t("legal")}</h4>
+						<h4 className="mb-4 text-sm font-semibold text-brand-cream">
+							{t("legal")}
+						</h4>
 						<ul className="space-y-2">
 							{footerLinks.legal.map((link) => (
 								<li key={link.href}>
