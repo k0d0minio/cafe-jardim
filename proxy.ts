@@ -9,7 +9,7 @@ export function proxy(request: NextRequest) {
 		pathname.startsWith("/api/") ||
 		pathname.startsWith("/_next/") ||
 		pathname.startsWith("/favicon.ico") ||
-		/\.(jpg|jpeg|png|gif|webp|svg|ico|css|js|woff|woff2|ttf|eot)$/i.test(
+		/\.(jpg|jpeg|png|gif|webp|svg|ico|css|js|woff|woff2|ttf|eot|pdf|mp4|webm|txt|xml|json)$/i.test(
 			pathname,
 		);
 
@@ -103,6 +103,6 @@ export const config = {
 		 * - favicon.ico (favicon file)
 		 * - public files with extensions (images, etc.)
 		 */
-		"/((?!api|_next/static|_next/image|favicon.ico|.*\\.(?:jpg|jpeg|png|gif|webp|svg|ico|css|js|woff|woff2|ttf|eot)).*)",
+		"/((?!api|_next/static|_next/image|favicon.ico|.*\\.(?:jpg|jpeg|png|gif|webp|svg|ico|css|js|woff|woff2|ttf|eot|pdf|mp4|webm|txt|xml|json)).*)",
 	],
 };
