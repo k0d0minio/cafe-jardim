@@ -50,3 +50,12 @@ slate theme. Anything that looks off-brand is that gap, not a bug in a component
 - **Gates are human checkboxes** — read them, never tick them.
 - **No secrets in git, ever.** Env vars only (`.env.example` documents the names); flag any
   plaintext credential found.
+
+## Dormant — when this repo is picked up again
+
+Parked on 2026-09-26 (Jamie: dormant altogether; every open ticket removed rather than kept — a dormant repo carries no backlog). To wake it:
+
+1. `git rm .icm/dormant`.
+2. From icm-board, `_system/scripts/icm-sync.sh --apply projects/cafe-jardim` to adopt the pipeline template, then `/setup` here to fill the project-owned files.
+3. Cut fresh stubs from what the pick-up is for — never resurrect the old ones from history.
+
