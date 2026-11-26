@@ -201,4 +201,3 @@ export function isOpenNow(): boolean {
 
 	return currentTime >= today.open && currentTime <= today.close;
 }
-

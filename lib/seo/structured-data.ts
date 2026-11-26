@@ -318,12 +318,11 @@ export function createLocalBusinessSchema(
 	options: LocalBusinessSchemaOptions = {},
 ): WithContext<LocalBusiness> {
 	const businessName =
-		options.name ||
-		process.env.NEXT_PUBLIC_BUSINESS_NAME ||
-		organizationName;
+		options.name || process.env.NEXT_PUBLIC_BUSINESS_NAME || organizationName;
 	const businessUrl = options.url || siteUrl;
 	const businessImage = options.image || `${siteUrl}/og-image.jpg`;
-	const businessPhone = options.telephone || process.env.NEXT_PUBLIC_BUSINESS_PHONE;
+	const businessPhone =
+		options.telephone || process.env.NEXT_PUBLIC_BUSINESS_PHONE;
 	const businessAddress = options.address || {
 		streetAddress: process.env.NEXT_PUBLIC_BUSINESS_ADDRESS,
 		addressLocality: "São Lourenço",
@@ -370,13 +369,18 @@ export function createLocalBusinessSchema(
 		};
 	}
 
-	if (options.openingHoursSpecification && options.openingHoursSpecification.length > 0) {
-		schema.openingHoursSpecification = options.openingHoursSpecification.map((hours) => ({
-			"@type": "OpeningHoursSpecification",
-			dayOfWeek: hours.dayOfWeek,
-			opens: hours.opens,
-			closes: hours.closes,
-		}));
+	if (
+		options.openingHoursSpecification &&
+		options.openingHoursSpecification.length > 0
+	) {
+		schema.openingHoursSpecification = options.openingHoursSpecification.map(
+			(hours) => ({
+				"@type": "OpeningHoursSpecification",
+				dayOfWeek: hours.dayOfWeek,
+				opens: hours.opens,
+				closes: hours.closes,
+			}),
+		);
 	}
 
 	if (options.sameAs && options.sameAs.length > 0) {
@@ -405,7 +409,9 @@ export function createLocalBusinessSchema(
  * ```
  */
 export function generateStructuredDataScript(
-	schemas: Array<WithContext<Organization | WebSite | BreadcrumbList | LocalBusiness>>,
+	schemas: Array<
+		WithContext<Organization | WebSite | BreadcrumbList | LocalBusiness>
+	>,
 ): string {
 	return JSON.stringify(schemas.length === 1 ? schemas[0] : schemas, null, 0);
 }

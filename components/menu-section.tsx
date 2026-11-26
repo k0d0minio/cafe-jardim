@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { menuHighlights, menuPdf } from "@/lib/data/cafe-info";
 import { Button } from "@/components/ui/button";
+import { menuHighlights, menuPdf } from "@/lib/data/cafe-info";
 
 const containerVariants = {
 	hidden: { opacity: 0 },

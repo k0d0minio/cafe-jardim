@@ -7,7 +7,16 @@ const siteDescription =
 	"Experience the perfect blend of artisan coffee, fresh food, and warm hospitality in São Lourenço, Portugal. A cozy cafe where every cup tells a story.";
 const siteKeywords = process.env.NEXT_PUBLIC_SITE_KEYWORDS
 	? process.env.NEXT_PUBLIC_SITE_KEYWORDS.split(",").map((k) => k.trim())
-	: ["cafe", "coffee", "São Lourenço", "Portugal", "restaurant", "pastries", "breakfast", "lunch"];
+	: [
+			"cafe",
+			"coffee",
+			"São Lourenço",
+			"Portugal",
+			"restaurant",
+			"pastries",
+			"breakfast",
+			"lunch",
+		];
 const authorName = process.env.NEXT_PUBLIC_AUTHOR_NAME || "Your Name";
 const creatorName = process.env.NEXT_PUBLIC_CREATOR_NAME || "Your Name";
 const twitterHandle = process.env.NEXT_PUBLIC_TWITTER_HANDLE || "@yourusername";

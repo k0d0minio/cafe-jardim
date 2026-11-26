@@ -2,10 +2,17 @@
 
 import { motion } from "framer-motion";
 import { Star } from "lucide-react";
-import { useState } from "react";
 import { useTranslations } from "next-intl";
+import { useState } from "react";
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardHeader,
+} from "@/components/ui/card";
 import { reviews } from "@/lib/data/cafe-info";
-import { Card, CardContent, CardDescription, CardHeader } from "@/components/ui/card";
+
+const STAR_POSITIONS = [1, 2, 3, 4, 5];
 
 const containerVariants = {
 	hidden: { opacity: 0 },
@@ -30,7 +37,9 @@ const cardVariants = {
 
 export function ReviewsSection() {
 	const t = useTranslations("reviews");
-	const [expandedReviews, setExpandedReviews] = useState<Set<string>>(new Set());
+	const [expandedReviews, setExpandedReviews] = useState<Set<string>>(
+		new Set(),
+	);
 
 	const toggleReview = (id: string) => {
 		const newExpanded = new Set(expandedReviews);
@@ -43,11 +52,11 @@ export function ReviewsSection() {
 	};
 
 	const renderStars = (rating: number) => {
-		return Array.from({ length: 5 }, (_, i) => (
+		return STAR_POSITIONS.map((position) => (
 			<Star
-				key={i}
+				key={position}
 				className={`h-4 w-4 ${
-					i < rating
+					position <= rating
 						? "fill-yellow-400 text-yellow-400"
 						: "text-muted-foreground"
 				}`}
@@ -84,9 +93,10 @@ export function ReviewsSection() {
 					{reviews.map((review) => {
 						const isExpanded = expandedReviews.has(review.id);
 						const shouldTruncate = review.comment.length > 150;
-						const displayComment = shouldTruncate && !isExpanded
-							? `${review.comment.slice(0, 150)}...`
-							: review.comment;
+						const displayComment =
+							shouldTruncate && !isExpanded
+								? `${review.comment.slice(0, 150)}...`
+								: review.comment;
 
 						return (
 							<motion.div key={review.id} variants={cardVariants}>
@@ -127,4 +137,3 @@ export function ReviewsSection() {
 		</section>
 	);
 }
-

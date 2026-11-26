@@ -3,9 +3,15 @@
 import { motion } from "framer-motion";
 import { Clock } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { getTodayHours, isOpenNow, openingHours } from "@/lib/data/cafe-info";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardHeader,
+	CardTitle,
+} from "@/components/ui/card";
+import { getTodayHours, isOpenNow, openingHours } from "@/lib/data/cafe-info";
 
 export function OpeningHours() {
 	const t = useTranslations("openingHours");
@@ -34,7 +40,9 @@ export function OpeningHours() {
 					<h2 className="mt-5 text-3xl font-semibold tracking-tight text-primary sm:text-4xl md:text-5xl">
 						{t("title")}
 					</h2>
-					<p className="mt-4 text-lg text-muted-foreground">{t("description")}</p>
+					<p className="mt-4 text-lg text-muted-foreground">
+						{t("description")}
+					</p>
 				</motion.div>
 
 				<motion.div
@@ -66,8 +74,7 @@ export function OpeningHours() {
 						<CardContent>
 							<div className="space-y-3">
 								{openingHours.map((hours) => {
-									const isToday =
-										getTodayHours()?.day === hours.day;
+									const isToday = getTodayHours()?.day === hours.day;
 									return (
 										<div
 											key={hours.day}
@@ -92,4 +99,3 @@ export function OpeningHours() {
 		</section>
 	);
 }
-

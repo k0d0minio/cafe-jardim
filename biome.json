@@ -7,7 +7,13 @@
 	},
 	"files": {
 		"ignoreUnknown": false,
-		"includes": ["**/*", "!!**/.vscode", "!**/opencode.jsonc", "!**/.icm", "!**/.claude"]
+		"includes": [
+			"**/*",
+			"!!**/.vscode",
+			"!**/opencode.jsonc",
+			"!**/.icm",
+			"!**/.claude"
+		]
 	},
 	"css": {
 		"parser": {
