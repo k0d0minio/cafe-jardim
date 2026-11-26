@@ -159,7 +159,7 @@ Should I implement this? Y/N
 
 ### Quality Gates
 - All code must pass `npm run lint`
-- All code must pass `npm run type-check`
+- All code must pass `npm run typecheck`
 - All tests must pass
 - Build must succeed
 

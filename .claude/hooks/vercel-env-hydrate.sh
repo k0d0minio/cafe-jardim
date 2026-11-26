@@ -63,10 +63,8 @@
 # remote alone; the hook names the candidates and hydrates nothing until the panel sets
 # `VERCEL_PROJECT` to one of them.
 #
-# Invoked by `session-start.sh`, not by `settings.json`: the estate's settings files are
-# 16-of-25 divergent and hand-owned, while `session-start.sh` is byte-identical in every
-# repo that has it and already registered everywhere. Riding the registration it has is
-# one canonical file to fan out instead of two dozen policy edits.
+# Registered in `.claude/settings.json` (SessionStart), its own entry since the blueprint
+# render of 2026-11-26: the blueprint's session-start hook does not call it.
 #
 # Where the repo carries the pipeline's own `.icm/scripts/env.sh` AND declares a deploy block
 # (`.icm/project.json` → deploy.projects), that script owns the pull — one implementation for the

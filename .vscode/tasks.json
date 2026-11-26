@@ -72,9 +72,9 @@
 			}
 		},
 		{
-			"label": "npm: type-check",
+			"label": "npm: typecheck",
 			"type": "shell",
-			"command": "npm run type-check",
+			"command": "npm run typecheck",
 			"problemMatcher": "$tsc",
 			"presentation": {
 				"reveal": "always",

@@ -105,7 +105,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 - `npm run start` - Start production server
 - `npm run lint` - Run Biome linter
 - `npm run lint:fix` - Fix linting errors and format code with Biome
-- `npm run type-check` - Run TypeScript type checking
+- `npm run typecheck` - Run TypeScript type checking
 - `npm run test` - Run Vitest tests
 - `npm run test:watch` - Run Vitest in watch mode
 - `npm run test:ui` - Run Vitest tests in UI mode

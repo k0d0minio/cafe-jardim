@@ -1,98 +1,114 @@
-name: CI
-
+# The blueprint owns this file. An update of the blueprint replaces it: do not edit it.
+# The steps of the job code are in .icm/_system/ci/code.sh.
+# CI is the source of truth: these checks do not run on a computer of a person.
+name: ci
 on:
   push:
-    branches: [main, develop]
+    branches: [main]
   pull_request:
-    branches: [main, develop]
-  workflow_dispatch:
+    # A draft runs no job: the checks start when the pull request is ready.
+    types: [opened, synchronize, reopened, ready_for_review]
+permissions:
+  contents: read
+defaults:
+  run:
+    shell: bash
+# The Node version is the one of .nvmrc. A repo with no .nvmrc gets this one.
+env:
+  NODE_DEFAULT: "22"
 
 jobs:
-  lint-and-type-check:
-    name: Lint & Type Check
+  secrets:
+    # gitleaks reads the full history. It is the binary, not the action: the action needs a
+    # licence for an organisation.
+    if: github.event_name != 'pull_request' || !github.event.pull_request.draft
     runs-on: ubuntu-latest
+    env:
+      GITLEAKS_VERSION: 8.30.1
+      GITLEAKS_SHA256: 551f6fc83ea457d62a0d98237cbad105af8d557003051f41f3e7ca7b3f2470eb
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          node-version: '20'
-          cache: 'npm'
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Install gitleaks
+        run: |
+          f="gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz"
+          curl -fsSLO "https://github.com/gitleaks/gitleaks/releases/download/v${GITLEAKS_VERSION}/${f}"
+          echo "${GITLEAKS_SHA256}  ${f}" | sha256sum -c -
+          tar -xzf "${f}" gitleaks
+      - name: Scan the full history
+        run: ./gitleaks git --redact --no-banner -v .
 
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Run linter
-        run: npm run lint
-
-      - name: Run type check
-        run: npm run type-check
-
-  build:
-    name: Build
+  workflows:
+    if: github.event_name != 'pull_request' || !github.event.pull_request.draft
     runs-on: ubuntu-latest
+    env:
+      ACTIONLINT_VERSION: 1.7.12
+      ACTIONLINT_SHA256: 8aca8db96f1b94770f1b0d72b6dddcb1ebb8123cb3712530b08cc387b349a3d8
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          node-version: '20'
-          cache: 'npm'
+          persist-credentials: false
+      - name: Install actionlint
+        run: |
+          f="actionlint_${ACTIONLINT_VERSION}_linux_amd64.tar.gz"
+          curl -fsSLO "https://github.com/rhysd/actionlint/releases/download/v${ACTIONLINT_VERSION}/${f}"
+          echo "${ACTIONLINT_SHA256}  ${f}" | sha256sum -c -
+          tar -xzf "${f}" actionlint
+      - name: actionlint
+        run: ./actionlint -color
 
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Build application
-        run: npm run build
-
-  test:
-    name: Vitest Tests
+  icm-only:
+    # A push to a pull request that changes only the records of a run (the close-out
+    # commit of release.sh) does not run the jobs code and database again, when the check
+    # code is green on an earlier commit of the branch (rc25, JAM-570). Each doubt gives the
+    # full CI. The rules are in .icm/_system/ci/icm-only.sh. A push to the default branch
+    # always runs the full CI.
+    if: github.event_name == 'pull_request' && github.event.action == 'synchronize' && !github.event.pull_request.draft
     runs-on: ubuntu-latest
-    needs: [build]
+    permissions:
+      contents: read
+      checks: read
+    outputs:
+      skip: ${{ steps.records.outputs.skip }}
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          node-version: '20'
-          cache: 'npm'
+          sparse-checkout: .icm/_system/ci
+          persist-credentials: false
+      - id: records
+        env:
+          EVENT: ${{ github.event_name }}
+          ACTION: ${{ github.event.action }}
+          BEFORE: ${{ github.event.before }}
+          AFTER: ${{ github.event.pull_request.head.sha }}
+          GH_REPO: ${{ github.repository }}
+          GH_TOKEN: ${{ github.token }}
+        run: bash .icm/_system/ci/icm-only.sh
 
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Run tests
-        run: npm run test
-
-  test-coverage:
-    name: Test Coverage
+  code:
+    # "!cancelled()": the job runs when the job icm-only is skipped (a push to the default
+    # branch, a new pull request) or fails.
+    needs: icm-only
+    if: ${{ !cancelled() && (github.event_name != 'pull_request' || !github.event.pull_request.draft) && needs.icm-only.outputs.skip != 'true' }}
     runs-on: ubuntu-latest
-    needs: [build]
+    concurrency:
+      group: code-${{ github.ref }}
+      cancel-in-progress: true
+
+    env:
+      BASE_REF: ${{ github.base_ref }}
+
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          node-version: '20'
-          cache: 'npm'
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Run tests with coverage
-        run: npm run test:coverage
-
-      - name: Upload coverage reports
-        if: always()
-        uses: actions/upload-artifact@v4
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        if: hashFiles('package.json') != ''
         with:
-          name: coverage-reports
-          path: coverage/
-          retention-days: 30
+          node-version-file: ${{ hashFiles('.nvmrc') != '' && '.nvmrc' || '' }}
+          node-version: ${{ hashFiles('.nvmrc') == '' && env.NODE_DEFAULT || '' }}
+      - run: bash .icm/_system/ci/code.sh
+

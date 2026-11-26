@@ -8,7 +8,7 @@ Comprehensive quality assurance workflow: run automated checks, auto-fix issues,
 ### 1. Run checks in sequence
 Execute in order, stopping at first failure:
 - `npm run lint` → `npm run lint:fix` (auto-fix linting)
-- `npm run type-check` (TypeScript validation)
+- `npm run typecheck` (TypeScript validation)
 - `npm run build` (compilation check)
 - `npm run test` (test suite)
 - `npm audit` (dependency security audit)
